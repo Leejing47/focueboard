@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FocusBoard 学习任务看板</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
@@ -21,9 +21,10 @@
     <aside class="sidebar">
       <section class="panel">
         <h2>添加任务</h2>
+
         <form id="taskForm" class="task-form">
           <label for="taskTitle">任务名称</label>
-          <input id="taskTitle" type="text" placeholder="例如：完成 JavaScript DOM 练习" maxlength="40" required>
+          <input id="taskTitle" type="text" placeholder="例如：完成 JavaScript DOM 练习" maxlength="40" required />
 
           <label for="taskDesc">任务描述</label>
           <textarea id="taskDesc" placeholder="写下具体目标或完成标准" maxlength="160"></textarea>
@@ -31,38 +32,39 @@
           <div class="form-row">
             <div>
               <label for="taskPriority">优先级</label>
-              <section id="taskPriority">
+              <select id="taskPriority">
                 <option value="low">低</option>
                 <option value="medium" selected>中</option>
                 <option value="high">高</option>
-              </section>
+              </select>
             </div>
 
             <div>
-              <label for="taskDueDate">截至日期</label>
-              <input type="date" id="taskDueDate">
+              <label for="taskDueDate">截止日期</label>
+              <input id="taskDueDate" type="date" />
             </div>
           </div>
 
           <label for="taskTag">标签</label>
-          <input type="text" id="taskTag" placeholder="例如：HTML / CSS / JavaScript" maxlength="18">
+          <input id="taskTag" type="text" placeholder="例如：HTML / CSS / JavaScript" maxlength="18" />
 
-          <button type="submit" class="primary-btn"></button>
+          <button type="submit" class="primary-btn">添加任务</button>
         </form>
       </section>
 
       <section class="panel">
         <h2>筛选任务</h2>
+
         <label for="searchInput">搜索</label>
-        <input type="search" id="searchInput" placeholder="输入任务名称或描述">
+        <input id="searchInput" type="search" placeholder="输入任务名称或描述" />
 
         <label for="priorityFilter">优先级</label>
-        <section id="priorityFilter">
+        <select id="priorityFilter">
           <option value="all">全部优先级</option>
           <option value="high">高优先级</option>
           <option value="medium">中优先级</option>
           <option value="low">低优先级</option>
-        </section>
+        </select>
       </section>
     </aside>
 
@@ -72,7 +74,7 @@
           <h2>待开始</h2>
           <span id="todoCount" class="count">0</span>
         </div>
-        <div class="task-list" id="todoList"></div>
+        <div id="todoList" class="task-list"></div>
       </section>
 
       <section class="column" data-status="doing">
@@ -80,7 +82,7 @@
           <h2>进行中</h2>
           <span id="doingCount" class="count">0</span>
         </div>
-        <div class="task-list" id="doingList"></div>
+        <div id="doingList" class="task-list"></div>
       </section>
 
       <section class="column" data-status="done">
@@ -88,7 +90,7 @@
           <h2>已完成</h2>
           <span id="doneCount" class="count">0</span>
         </div>
-        <div class="task-list" id="doneList"></div>
+        <div id="doneList" class="task-list"></div>
       </section>
     </section>
   </main>
