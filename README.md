@@ -25,7 +25,7 @@ FocusBoard 是一个使用 HTML、CSS 和 JavaScript 开发的学习任务看板
 
 ## 项目截图
 
-![项目截图](./assets/screenshots/home.png)
+![项目截图](./assets/image.png)
 
 ## 我学到了什么
 
