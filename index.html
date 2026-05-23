@@ -4,51 +4,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FocusBoard</title>
+  <title>FocusBoard 学习任务看板</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
   <header class="app-header">
-    <h1>FocusBoard</h1>
-    <p>管理你的学习任务和项目进度</p>
+    <div>
+      <p class="eyebrow">FocusBoard</p>
+      <h1>学习任务看板</h1>
+      <p class="header-desc">记录学习计划，跟踪任务进度，把每天的推进变得清楚一点。</p>
+    </div>
   </header>
 
   <main class="app-layout">
-    <section class="task-form-panel">
-      <h2>添加任务</h2>
-      <form id="taskForm">
-        <input id="taskTitle" type="text" placeholder="任务名称" required>
-        <textarea id="taskDesc" placeholder="任务描述"></textarea>
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>添加任务</h2>
+        <form id="taskForm" class="task-form">
+          <label for="taskTitle">任务名称</label>
+          <input id="taskTitle" type="text" placeholder="例如：完成 JavaScript DOM 练习" maxlength="40" required>
 
-        <select id="taskPriority">
-          <option value="low">低优先级</option>
-          <option value="medium">中优先级</option>
+          <label for="taskDesc">任务描述</label>
+          <textarea id="taskDesc" placeholder="写下具体目标或完成标准" maxlength="160"></textarea>
+
+          <div class="form-row">
+            <div>
+              <label for="taskPriority">优先级</label>
+              <section id="taskPriority">
+                <option value="low">低</option>
+                <option value="medium" selected>中</option>
+                <option value="high">高</option>
+              </section>
+            </div>
+
+            <div>
+              <label for="taskDueDate">截至日期</label>
+              <input type="date" id="taskDueDate">
+            </div>
+          </div>
+
+          <label for="taskTag">标签</label>
+          <input type="text" id="taskTag" placeholder="例如：HTML / CSS / JavaScript" maxlength="18">
+
+          <button type="submit" class="primary-btn"></button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>筛选任务</h2>
+        <label for="searchInput">搜索</label>
+        <input type="search" id="searchInput" placeholder="输入任务名称或描述">
+
+        <label for="priorityFilter">优先级</label>
+        <section id="priorityFilter">
+          <option value="all">全部优先级</option>
           <option value="high">高优先级</option>
-        </select>
+          <option value="medium">中优先级</option>
+          <option value="low">低优先级</option>
+        </section>
+      </section>
+    </aside>
 
-        <input type="data" id="taskDueDate">
-
-        <button type="submit">添加任务</button>
-      </form>
-    </section>
-
-    <section class="board">
-      <div class="column" data-status="todo">
-        <h2>待开始</h2>
+    <section class="board" aria-label="任务看板">
+      <section class="column" data-status="todo">
+        <div class="column-header">
+          <h2>待开始</h2>
+          <span id="todoCount" class="count">0</span>
+        </div>
         <div class="task-list" id="todoList"></div>
-      </div>
+      </section>
 
-      <div class="column" data-status="doing">
-        <h2>进行中</h2>
+      <section class="column" data-status="doing">
+        <div class="column-header">
+          <h2>进行中</h2>
+          <span id="doingCount" class="count">0</span>
+        </div>
         <div class="task-list" id="doingList"></div>
-      </div>
+      </section>
 
-      <div class="column" id="done">
-        <h2>已完成</h2>
+      <section class="column" data-status="done">
+        <div class="column-header">
+          <h2>已完成</h2>
+          <span id="doneCount" class="count">0</span>
+        </div>
         <div class="task-list" id="doneList"></div>
-      </div>
+      </section>
     </section>
   </main>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 
 </html>
