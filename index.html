@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusBoard</title>
+</head>
+
+<body>
+  <header class="app-header">
+    <h1>FocusBoard</h1>
+    <p>管理你的学习任务和项目进度</p>
+  </header>
+
+  <main class="app-layout">
+    <section class="task-form-panel">
+      <h2>添加任务</h2>
+      <form id="taskForm">
+        <input id="taskTitle" type="text" placeholder="任务名称" required>
+        <textarea id="taskDesc" placeholder="任务描述"></textarea>
+
+        <select id="taskPriority">
+          <option value="low">低优先级</option>
+          <option value="medium">中优先级</option>
+          <option value="high">高优先级</option>
+        </select>
+
+        <input type="data" id="taskDueDate">
+
+        <button type="submit">添加任务</button>
+      </form>
+    </section>
+
+    <section class="board">
+      <div class="column" data-status="todo">
+        <h2>待开始</h2>
+        <div class="task-list" id="todoList"></div>
+      </div>
+
+      <div class="column" data-status="doing">
+        <h2>进行中</h2>
+        <div class="task-list" id="doingList"></div>
+      </div>
+
+      <div class="column" id="done">
+        <h2>已完成</h2>
+        <div class="task-list" id="doneList"></div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
